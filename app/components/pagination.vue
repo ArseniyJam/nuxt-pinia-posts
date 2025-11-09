@@ -5,7 +5,7 @@ const { totalPages } = defineProps<{
 }>();
 
 const paginationNums = computed(() => {
-   if (totalPages === 1) return [1];
+   if (totalPages <= 1) return [1];
    if (totalPages === 2) return [1, 2];
    const currPage = current.value as number;
    return currPage === 1

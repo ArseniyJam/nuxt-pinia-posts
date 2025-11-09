@@ -12,8 +12,9 @@ const { currentPage, totalPages, paginatedPosts } = usePaginatedPosts(
    3
 );
 
+// Сброс последней страницы если ставновится пустая
 watch(paginatedPosts, () => {
-   if (paginatedPosts.value.length === 0) {
+   if (paginatedPosts.value.length === 0 && currentPage.value !== 1) {
       currentPage.value = totalPages.value;
    }
 });
