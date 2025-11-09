@@ -1,0 +1,29 @@
+{
+   "name": "nuxt-posts",
+   "type": "module",
+   "private": true,
+   "scripts": {
+      "build": "nuxt build",
+      "dev": "nuxt dev",
+      "generate": "nuxt generate",
+      "preview": "nuxt preview",
+      "postinstall": "nuxt prepare",
+      "lint": "eslint ."
+   },
+   "dependencies": {
+      "@pinia/nuxt": "^0.11.3",
+      "@tailwindcss/vite": "^4.1.17",
+      "@vee-validate/rules": "^4.15.1",
+      "@vueuse/core": "^14.0.0",
+      "nuxt": "^4.2.1",
+      "pinia": "^3.0.4",
+      "tailwindcss": "^4.1.17",
+      "vee-validate": "^4.15.1",
+      "vue": "^3.5.22",
+      "vue-router": "^4.6.3"
+   },
+   "devDependencies": {
+      "@nuxt/eslint-config": "^1.10.0",
+      "eslint": "^9.39.1"
+   }
+}
