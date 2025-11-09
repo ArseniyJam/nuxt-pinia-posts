@@ -7,11 +7,12 @@ const { totalPages } = defineProps<{
 const paginationNums = computed(() => {
    if (totalPages === 1) return [1];
    if (totalPages === 2) return [1, 2];
-   return current.value === 1
-      ? [current.value, current.value + 1, current.value + 2]
-      : current.value === totalPages
-      ? [current.value - 2, current.value - 1, current.value]
-      : [current.value! - 1, current.value, current.value! + 1];
+   const currPage = current.value as number;
+   return currPage === 1
+      ? [currPage, currPage + 1, currPage + 2]
+      : currPage >= totalPages
+      ? [currPage - 2, currPage - 1, currPage]
+      : [currPage - 1, currPage, currPage + 1];
 });
 
 function handleClick(stream: "left" | "rigth") {
@@ -24,9 +25,10 @@ function handleClick(stream: "left" | "rigth") {
 
 <template>
    <div class="flex gap-2">
-      <button @click="handleClick('left')"><</button>
+      <button @click="handleClick('left')">{{ "<" }}</button>
       <button
          v-for="num in paginationNums"
+         :key="num"
          @click="current = num"
          class="p-1 rounded"
          :class="{
@@ -35,6 +37,6 @@ function handleClick(stream: "left" | "rigth") {
       >
          {{ num }}
       </button>
-      <button @click="handleClick('rigth')">></button>
+      <button @click="handleClick('rigth')">{{ ">" }}</button>
    </div>
 </template>

@@ -5,7 +5,7 @@ export function usePaginatedPosts(
 ) {
    const currentPage = ref(1);
 
-   const filteredPosts = useSelectedPosts(posts, search);
+   const filteredPosts = usePostsFiltered(posts, search, "content");
 
    const totalPages = computed(() =>
       Math.ceil(filteredPosts.value.length / pageSize)

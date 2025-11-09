@@ -11,6 +11,12 @@ const { currentPage, totalPages, paginatedPosts } = usePaginatedPosts(
    titleToFind,
    3
 );
+
+watch(paginatedPosts, () => {
+   if (paginatedPosts.value.length === 0) {
+      currentPage.value = totalPages.value;
+   }
+});
 </script>
 
 <template>

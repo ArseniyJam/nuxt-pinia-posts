@@ -1,11 +1,12 @@
-export function useSelectedPosts(
+export function usePostsFiltered(
    posts: Ref<PostInterface[]>,
-   search: Ref<string>
+   search: Ref<string>,
+   filterBy: keyof PostInterface = "title"
 ) {
    return computed(() => {
       if (!search.value) return posts.value;
       return posts.value.filter((post) =>
-         post.title.toLowerCase().includes(search.value.toLowerCase())
+         post[filterBy].toLowerCase().includes(search.value.toLowerCase())
       );
    });
 }

@@ -29,7 +29,7 @@ configure({
          max: `Поле "${ctx.field}" не должно превышать ${firstParam} символов`,
       };
 
-      return messages[ctx.rule?.name!] || `Ошибка в поле ${ctx.field}`;
+      return messages[ctx.rule?.name ?? ""] || `Ошибка в поле ${ctx.field}`;
    },
 });
 
